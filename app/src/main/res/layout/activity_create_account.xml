@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".CreateAccount">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Login Screen" />
+            android:text="Create Account Window"
+            android:textSize="18sp" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="91dp" />
+            android:layout_height="43dp" />
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -29,11 +33,12 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView5"
-                android:layout_width="match_parent"
+                android:id="@+id/textView2"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Username" />
+                android:inputType="textPersonName"
+                android:text="Username:" />
 
             <EditText
                 android:id="@+id/UserNameField"
@@ -43,12 +48,12 @@
                 android:gravity="center"
                 android:hint="(Please enter a Username)"
                 android:inputType="textPersonName"
-                />
+                 />
         </LinearLayout>
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="72dp" />
+            android:layout_height="91dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -56,7 +61,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/textView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -69,25 +74,20 @@
                 android:ems="10"
                 android:gravity="center"
                 android:hint="(Please enter a Password)"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                />
         </LinearLayout>
 
-        <Space
+        <Spinner
+            android:id="@+id/RoleSelect"
             android:layout_width="match_parent"
-            android:layout_height="97dp" />
+            android:layout_height="wrap_content" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="OnCreateAccountButton"
-            android:text="Need an Account?" />
-
-        <Button
-            android:id="@+id/button5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="OnLoginButton"
-            android:text="Login" />
+            android:onClick="OnCreatetheAccountButton"
+            android:text="Create Account" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
