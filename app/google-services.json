@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "680891691699",
+    "firebase_url": "https://walk-in-clinic-application.firebaseio.com",
+    "project_id": "walk-in-clinic-application",
+    "storage_bucket": "walk-in-clinic-application.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:680891691699:android:00e768a0b1168260d6f6c6",
+        "android_client_info": {
+          "package_name": "com.example.walkinclinicapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "680891691699-3b71fpm2i12sh1rdeil94r14t00hrkm3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.walkinclinicapp",
+            "certificate_hash": "cf0a5b5f7674ef4177e1f188324523bdbbf1571f"
+          }
+        },
+        {
+          "client_id": "680891691699-om7lvutijha3nnlt34sqmik79k40avhi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7FbvyYMFuOev5wix5Xv9ryFn4MFHpl40"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "680891691699-om7lvutijha3nnlt34sqmik79k40avhi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -7,6 +7,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.os.Bundle;
 
+
+
 public class WelcomeScreen extends AppCompatActivity {
 
     @Override
@@ -15,7 +17,7 @@ public class WelcomeScreen extends AppCompatActivity {
         setContentView(R.layout.activity_welcome_screen);
         Intent i = getIntent();
         TextView WelcomeMsg = findViewById(R.id.WelcomeMsg);
-        WelcomeMsg.setText("Welcome " + i.getStringExtra("username") + "!" + "You have the role of: "+ i.getStringExtra("role"));
+        WelcomeMsg.setText("Welcome " + i.getStringExtra("Username") + "!" + "You have the role of: "+ i.getStringExtra("Role"));
     }
 
 }
