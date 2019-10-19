@@ -19,6 +19,12 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.nio.charset.StandardCharsets;
+import java.math.BigInteger;
+
+
 public class MainActivity extends AppCompatActivity {
     //Firebase
     FirebaseDatabase database;
@@ -52,7 +58,24 @@ public class MainActivity extends AppCompatActivity {
     public void OnLoginButton(View view) {
         signIn(UsernameField.getText().toString(),PasswordField.getText().toString());
     }
+    public static String hash(String password){
+        try{
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hash = digest.digest(password.getBytes("UTF-8"));
+            StringBuffer hexString = new StringBuffer();
 
+            for (int i = 0; i < hash.length; i++) {
+                String hex = Integer.toHexString(0xff & hash[i]);
+                if(hex.length() == 1) hexString.append('0');
+                hexString.append(hex);
+            }
+
+            return hexString.toString();
+        } catch(Exception ex){
+            throw new RuntimeException(ex);
+        }
+
+    }
 
     private void signIn(final String username,final String password){
         final Intent intent = new Intent(getApplicationContext(),WelcomeScreen.class);
@@ -63,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
                 if(dataSnapshot.child(username).exists()){
                     if(!username.isEmpty()){
                         User login = dataSnapshot.child(username).getValue(User.class);
-                        if (login.getPassword().equals(password)){
+                        if (login.getPassword().equals(hash(password))){
                             Toast.makeText(MainActivity.this, "Successful Login!", Toast.LENGTH_LONG).show();
                             users = FirebaseDatabase.getInstance().getReference().child("Users").child(username);
                             users.addListenerForSingleValueEvent(new ValueEventListener() {

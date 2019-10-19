@@ -20,6 +20,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.security.MessageDigest;
+
 public class CreateAccount extends AppCompatActivity {
     //Firebase
     FirebaseDatabase database;
@@ -47,8 +49,26 @@ public class CreateAccount extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         role.setAdapter(adapter);
     }
+    public static String hash(String password){
+        try{
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hash = digest.digest(password.getBytes("UTF-8"));
+            StringBuffer hexString = new StringBuffer();
+
+            for (int i = 0; i < hash.length; i++) {
+                String hex = Integer.toHexString(0xff & hash[i]);
+                if(hex.length() == 1) hexString.append('0');
+                hexString.append(hex);
+            }
+
+            return hexString.toString();
+        } catch(Exception ex){
+            throw new RuntimeException(ex);
+        }
+
+    }
     public void OnCreatetheAccountButton(View view) {
-        final User user = new User(UsernameField.getText().toString(),PasswordField.getText().toString(),role.getSelectedItem().toString());
+        final User user = new User(UsernameField.getText().toString(),hash(PasswordField.getText().toString()),role.getSelectedItem().toString());
         users.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
