@@ -76,6 +76,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+    public void onBackPressed(){
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivityForResult (intent,0);
+    }
 
     private void signIn(final String username,final String password){
         final Intent intent = new Intent(getApplicationContext(),WelcomeScreen.class);
@@ -87,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                     if(!username.isEmpty()){
                         User login = dataSnapshot.child(username).getValue(User.class);
                         if (login.getPassword().equals(hash(password))){
-                            Toast.makeText(MainActivity.this, "Successful Login!", Toast.LENGTH_LONG).show();
+                            //Toast.makeText(MainActivity.this, "Successful Login!", Toast.LENGTH_SHORT).show();
                             users = FirebaseDatabase.getInstance().getReference().child("Users").child(username);
                             users.addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override

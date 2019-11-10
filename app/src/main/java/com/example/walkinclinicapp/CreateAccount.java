@@ -19,8 +19,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.auth.*;
 
 import java.security.MessageDigest;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CreateAccount extends AppCompatActivity {
     //Firebase
@@ -44,8 +47,12 @@ public class CreateAccount extends AppCompatActivity {
         PasswordField = findViewById(R.id.PasswordField);
         role = findViewById(R.id.RoleSelect);
 
+        List<String> roles = new ArrayList<String>();
+        roles.add("Employee");
+        roles.add("Patient");
+
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(CreateAccount.this,
-            android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.names));
+            android.R.layout.simple_list_item_1, roles);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         role.setAdapter(adapter);
     }
