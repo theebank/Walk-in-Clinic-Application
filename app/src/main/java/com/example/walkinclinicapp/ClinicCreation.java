@@ -23,6 +23,7 @@ import com.google.firebase.auth.*;
 
 import java.security.MessageDigest;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ClinicCreation extends AppCompatActivity {
@@ -44,7 +45,9 @@ public class ClinicCreation extends AppCompatActivity {
 
 
     public void OnCreatetheClinicButton(View view) {
-        final Clinic user = new Clinic(ClinicNameField.getText().toString());
+        final String[] empty = {"","","","","","",""};
+        final List emptylist = new ArrayList<String>(Arrays.asList(empty));
+        final Clinic user = new Clinic(ClinicNameField.getText().toString(),emptylist);
         clinics.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

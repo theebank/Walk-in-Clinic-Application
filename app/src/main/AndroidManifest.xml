@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Admin4Service"></activity>
+        <activity android:name=".Employee5Hours"></activity>
+        <activity android:name=".Employee4Clinic" />
+        <activity android:name=".Employee3Service" />
+        <activity android:name=".Employee2account" />
+        <activity android:name=".Employee1" />
+        <activity android:name=".Admin4Service" />
         <activity android:name=".ClinicCreation" />
         <activity android:name=".Admin3Clinic" />
         <activity android:name=".Admin2User" />

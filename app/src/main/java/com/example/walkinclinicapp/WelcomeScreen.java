@@ -24,9 +24,18 @@ public class WelcomeScreen extends AppCompatActivity {
         WelcomeMsg.setText("Welcome " + i.getStringExtra("Username") + "!" + "You have the role of: "+ i.getStringExtra("Role"));
         String roletype =i.getStringExtra("Role");
 
+
+
         if(roletype.equals("admin")){
             Intent intent = new Intent(getApplicationContext(), Admin1.class);
             startActivityForResult (intent,0);
+        }
+        if(roletype.equals("Employee")){
+            final Intent intent = new Intent(getApplicationContext(),Employee1.class);
+            intent.putExtra("Username",i.getStringExtra("Username"));
+            intent.putExtra("hide","0");
+
+            startActivityForResult(intent,0);
         }
     }
     public void LogoutButton(View view){

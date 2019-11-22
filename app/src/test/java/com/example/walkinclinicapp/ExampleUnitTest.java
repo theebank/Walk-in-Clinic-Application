@@ -2,6 +2,10 @@ package com.example.walkinclinicapp;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import static java.util.Objects.hash;
 import static org.junit.Assert.*;
 
@@ -26,7 +30,9 @@ public class ExampleUnitTest {
     }
     @Test
     public void ClinicTest(){
-        Clinic a = new Clinic("uottawa");
+        final String[] empty7 = {"","","","","","",""};
+        final List emptyhours = new ArrayList<String>(Arrays.asList(empty7));
+        Clinic a = new Clinic("uottawa",emptyhours);
         assertEquals("uottawa",a.getName());
     }
     @Test
@@ -34,4 +40,25 @@ public class ExampleUnitTest {
         User a = new User("username","password","role");
         assertEquals(MainActivity.hash("password"),MainActivity.hash(a.getPassword()));
     }
+    @Test
+    public void address(){
+        final String[] empty = {""};
+        final List emptylist = new ArrayList<String>(Arrays.asList(empty));
+        final String[] empty7 = {"","","","","","",""};
+        final List emptyhours = new ArrayList<String>(Arrays.asList(empty7));
+
+        Employee emp = new Employee("123123", "123123", "45mann", "insurance1", true, false, true, false, "unittest","asdfadsf", "Employee", emptylist,emptyhours);
+        assertEquals(emp.getAddress(),"123123");
+    }
+    @Test
+    public void clinicname(){
+        final String[] empty = {""};
+        final List emptylist = new ArrayList<String>(Arrays.asList(empty));
+        final String[] empty7 = {"","","","","","",""};
+        final List emptyhours = new ArrayList<String>(Arrays.asList(empty7));
+
+        Employee emp = new Employee("123123", "123123", "45mann", "insurance1", true, false, true, false, "unittest","asdfadsf", "Employee", emptylist,emptyhours);
+        assertEquals(emp.getClinicname(),"45mann");
+    }
+
 }

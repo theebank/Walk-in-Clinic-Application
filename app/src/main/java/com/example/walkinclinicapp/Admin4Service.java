@@ -33,7 +33,7 @@ public class Admin4Service extends AppCompatActivity {
     Spinner servicelist,levellist;
     FirebaseDatabase database;
     DatabaseReference ref;
-    Query query;
+    Query query,query1;
     EditText nameField, descriptionField;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +47,7 @@ public class Admin4Service extends AppCompatActivity {
         descriptionField = findViewById(R.id.Description);
         levellist = findViewById(R.id.level);
 
-        List<String> roles = new ArrayList<String>();
+        final List<String> roles = new ArrayList<String>();
         roles.add("Doctor");
         roles.add("Nurse");
         roles.add("Staff");
@@ -64,6 +64,7 @@ public class Admin4Service extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 final List<String> titleList = new ArrayList<String>();
                 titleList.add("--Choose a Service--");
+                titleList.add("Create a Service");
                 for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren()){
                     String titlename = dataSnapshot1.child("type").getValue(String.class);
                     titleList.add(titlename);
@@ -77,6 +78,7 @@ public class Admin4Service extends AppCompatActivity {
                 Toast.makeText(Admin4Service.this,databaseError.getMessage(),Toast.LENGTH_LONG).show();
             }
         });
+
     }
     public void returnbtn(View view){
         Intent intent = new Intent(getApplicationContext(), Admin1.class);
@@ -131,5 +133,6 @@ public class Admin4Service extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), Admin4Service.class);
         startActivityForResult (intent,0);
     }
+
 
 }
